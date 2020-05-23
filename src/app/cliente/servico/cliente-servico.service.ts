@@ -29,7 +29,7 @@ export class ClienteServicoService {
 
   remover(cliente: Cliente) {
     return this.httpClient.post(
-      "https://cors-anywhere.herokuapp.com/https://stormy-badlands-29216.herokuapp.com/api/cliente/incluir",
+      "https://cors-anywhere.herokuapp.com/https://stormy-badlands-29216.herokuapp.com/api/cliente/remover",
       cliente);
   }
 }
