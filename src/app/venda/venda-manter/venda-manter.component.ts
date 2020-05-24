@@ -59,7 +59,7 @@ export class VendaManterComponent implements OnInit {
     this.vendaServicoService.incluir(this.venda).subscribe(
       data => {
         alert(data['mensagem']);
-        this.router.navigate(['/matricula']);
+        this.voltar();
       }
     );
   }
