@@ -20,7 +20,6 @@ export class VendaManterComponent implements OnInit {
   vendaItem: VendaItem = new VendaItem();
   listaProduto: Produto[] = [];
   listaCliente: Cliente[] = [];
-  listaVendaItem: VendaItem[] = [];
 
   constructor(
     private routeActivated: ActivatedRoute,
@@ -31,7 +30,7 @@ export class VendaManterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let codigoVenda = this.routeActivated.snapshot.params.codigo;
+    const codigoVenda = this.routeActivated.snapshot.params.codigo;
 
     this.vendaServicoService.consultar(codigoVenda).subscribe(
       (data: Venda) => {
@@ -66,7 +65,6 @@ export class VendaManterComponent implements OnInit {
   }
 
   adicionar() {
-    console.log(this.venda);
     this.venda.listaVendaItem.push(this.vendaItem);
     this.vendaItem = new VendaItem();
   }

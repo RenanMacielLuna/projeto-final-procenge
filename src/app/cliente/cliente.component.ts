@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ClienteComponent implements OnInit {
 
+  public paginaAtual = 1;                       // Dizemos que queremos que o componente quando carregar, inicialize na página 1.
   listaCliente: Cliente[] = [];                 //Lista que recebe o retorno do serviço
   listaTotalClientes: Cliente[] = [];           // Lista para popular o combobox depois da primeira seleção;
   listaClienteTabela: Cliente[] = [];           // Lista para popular a tabela de clientes

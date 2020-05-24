@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoComponent implements OnInit {
 
+  paginaAtual = 1;
   listaProduto: Produto[] = [];                    //Lista que recebe o retorno do serviço
   listaTotalProdutos: Produto[] = [];              // Lista para popular o combobox depois da primeira seleção;
   listaProdutoTabela: Produto[] = [];              // Lista para popular a tabela de clientes

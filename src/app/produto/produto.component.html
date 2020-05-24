@@ -32,7 +32,8 @@
               </tr>
             </thead>
 
-            <tbody *ngFor="let produto of listaProdutoTabela">
+            <tbody
+              *ngFor="let produto of listaProdutoTabela | paginate: { itemsPerPage: 10, currentPage: paginaAtual }; let i = index">
               <tr>
                 <th><input type="text" type="radio" name="selecionado" (change)="selecionar(produto)"></th>
                 <td> {{ produto.codigo }} </td>
@@ -43,12 +44,19 @@
               </tr>
             </tbody>
           </table>
+          
+          <div class="d-flex justify-content-center">
+            <pagination-controls class="pagination-previous pagination-next" (pageChange)="paginaAtual = $event"
+              previousLabel="Anterior" nextLabel="Próximo">
+            </pagination-controls>
+          </div>
+          
         </div>
 
       </div>
 
       <div class="row" style="margin-bottom: 20px;">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-center">
           <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="incluir()">
             Incluir
           </button>

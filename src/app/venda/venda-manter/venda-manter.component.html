@@ -7,7 +7,6 @@
         <div class="form-group col-lg-12">
           <label for="cliente" class="control-label">Cliente:</label>
           <select [(ngModel)]="venda.cliente" class="form-control">
-            <option [ngValue]="null">Selecione o Cliente</option>
             <option *ngFor="let cliente of listaCliente" [ngValue]="cliente">{{ cliente.nome }}</option>
           </select>
         </div>
@@ -20,7 +19,6 @@
             <div class="form-group col-lg-6">
               <label for="produto" class="control-label">Produto:</label>
               <select [(ngModel)]="vendaItem.produto" class="form-control">
-                <option [ngValue]="null">Selecione</option>
                 <option *ngFor="let produto of listaProduto" [ngValue]="produto">{{produto.nome}}</option>
               </select>
             </div>
@@ -34,7 +32,7 @@
 
           <div class="row" style="margin-bottom: 20px;">
             <div class="col-lg-12">
-              <button *ngIf="this.operacao=='Incluir'" type="button" class="btn btn-primary" style="margin-right: 10px;"
+              <button type="button" class="btn btn-primary" style="margin-right: 10px;"
                 (click)="adicionar()">Adicionar</button>
             </div>
           </div>
@@ -50,7 +48,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let vendaItem of listaVendaItem">
+                  <tr *ngFor="let vendaItem of venda.listaVendaItem">
                     <th>{{ vendaItem.produto.nome }}</th>
                     <td>{{ vendaItem.quantidade }}</td>
                     <th><a style="cursor: pointer;" (click)="removerItem(vendaItem)">X</a></th>
@@ -65,7 +63,7 @@
 
 
       <div class="row" style="margin-bottom: 20px; margin-top: 20px;">
-        <div class="col-lg-12">
+        <div class="col-lg-12 d-flex justify-content-center">
           <button *ngIf="this.operacao=='Incluir'" type="button" class="btn btn-primary" style="margin-right: 10px;"
             (click)="incluir()">Incluir</button>
           <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="voltar()">Voltar</button>

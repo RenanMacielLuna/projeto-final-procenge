@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class VendaComponent implements OnInit {
 
   readonly apiURL: string;
+  public paginaAtual = 1;
 
   venda: Venda = new Venda();
   selecionado: Venda = new Venda();
